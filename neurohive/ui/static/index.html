@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroHive - Autonomous Multi-Agent Swarm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #060911;
+            --bg-card: #0d1322;
+            --border: #1a233a;
+            --neon-blue: #00d2ff;
+            --neon-purple: #9d4edd;
+            --neon-green: #00f59b;
+            --neon-red: #ff3366;
+            --text-main: #f0f4fc;
+            --text-muted: #8190b0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-base);
+            color: var(--text-main);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        .brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--neon-blue);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-pill {
+            background: rgba(0, 245, 155, 0.1);
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        .main-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 20px;
+            flex: 1;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .agent-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .agent-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .agent-icon { font-size: 24px; }
+        .agent-meta h4 { font-size: 14px; color: var(--neon-blue); }
+        .agent-meta p { font-size: 11px; color: var(--text-muted); }
+
+        .control-panel {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            background: #080d1a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 18px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: var(--neon-blue);
+        }
+        button {
+            background: linear-gradient(135deg, #00d2ff, #9d4edd);
+            border: none;
+            color: #fff;
+            padding: 0 24px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.9; }
+
+        .stream-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-height: 520px;
+            overflow-y: auto;
+        }
+        .feed-step {
+            background: #080d1a;
+            border-left: 4px solid var(--neon-blue);
+            border-radius: 0 8px 8px 0;
+            padding: 14px;
+        }
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        .agent-tag { color: var(--neon-purple); font-weight: 700; }
+        .code-box {
+            background: #030508;
+            border: 1px solid #141b2d;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--neon-green);
+            white-space: pre-wrap;
+        }
+        .output-box {
+            background: rgba(0, 245, 155, 0.05);
+            border: 1px dashed var(--neon-green);
+            padding: 10px;
+            border-radius: 6px;
+            color: var(--neon-green);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">🧠 NEURO_HIVE :: SWARM_ORCHESTRATOR</div>
+        <div class="status-pill">● 4 AGENTS IDLE & READY</div>
+    </header>
+
+    <div class="main-layout">
+        <!-- Sidebar: Active Swarm Agents -->
+        <div class="card">
+            <h3>🐝 Active Swarm Personas</h3>
+            <div class="agent-list">
+                <div class="agent-item">
+                    <div class="agent-icon">🏛️</div>
+                    <div class="agent-meta">
+                        <h4>Atlas</h4>
+                        <p>System Architect & Planner</p>
+                    </div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-icon">⚡</div>
+                    <div class="agent-meta">
+                        <h4>Cygnus</h4>
+                        <p>Lead Engineer & Synthesizer</p>
+                    </div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-icon">🛡️</div>
+                    <div class="agent-meta">
+                        <h4>Vanguard</h4>
+                        <p>Cybersecurity & CVE Auditor</p>
+                    </div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-icon">🚀</div>
+                    <div class="agent-meta">
+                        <h4>Sentinel</h4>
+                        <p>Isolated Sandbox Runtime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Work Area -->
+        <div class="card">
+            <div class="control-panel">
+                <input type="text" id="prompt-input" placeholder="Enter objective (e.g., 'Build mathematical benchmark and test execution')..." value="Build and benchmark an optimized algorithm in sandbox" />
+                <button onclick="dispatchSwarm()">Launch Swarm 🚀</button>
+            </div>
+
+            <div class="stream-feed" id="feed-container">
+                <div style="text-align: center; color: var(--text-muted); margin-top: 80px;">
+                    Enter an objective above to dispatch the collaborative agent swarm.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function dispatchSwarm() {
+            const input = document.getElementById('prompt-input');
+            const prompt = input.value.trim();
+            if (!prompt) return;
+
+            const container = document.getElementById('feed-container');
+            container.innerHTML = '<div style="text-align:center; color: var(--neon-blue); padding: 40px;">⚡ Atlas, Cygnus, Vanguard & Sentinel are collaborating...</div>';
+
+            try {
+                const res = await fetch('/api/swarm/dispatch', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+                const data = await res.json();
+                
+                container.innerHTML = '';
+                data.steps.forEach(step => {
+                    const el = document.createElement('div');
+                    el.className = 'feed-step';
+                    
+                    let extraHtml = '';
+                    if (step.code) {
+                        extraHtml += `<div class="code-box">${step.code}</div>`;
+                    }
+                    if (step.execution && step.execution.stdout) {
+                        extraHtml += `<div class="output-box"><b>[SANDBOX OUTPUT]:</b> ${step.execution.stdout}</div>`;
+                    }
+
+                    el.innerHTML = `
+                        <div class="feed-header">
+                            <span class="agent-tag">${step.agent.icon} ${step.agent.name} (${step.agent.role})</span>
+                            <span style="color: var(--text-muted);">${step.timestamp}</span>
+                        </div>
+                        <div>${step.message}</div>
+                        ${extraHtml}
+                    `;
+                    container.appendChild(el);
+                });
+            } catch (err) {
+                container.innerHTML = `<div style="color: var(--neon-red);">Error dispatching swarm: ${err.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>
