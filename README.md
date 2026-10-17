@@ -13,17 +13,36 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Multi-Agent: Swarm Orchestration](https://img.shields.io/badge/Multi--Agent-Atlas%20%E2%80%A2%20Cygnus%20%E2%80%A2%20Vanguard%20%E2%80%A2%20Sentinel-magenta.svg)](#)
-[![Sandbox: Isolated Security](https://img.shields.io/badge/Sandbox-Isolated%20Runtime-brightgreen.svg)](#)
+[![Platform: Linux](https://img.shields.io/badge/platform-Linux-orange.svg)](#)
+[![Multi-Agent: Swarm](https://img.shields.io/badge/Multi--Agent-Atlas%20%E2%80%A2%20Cygnus%20%E2%80%A2%20Vanguard%20%E2%80%A2%20Sentinel-magenta.svg)](#)
+[![Sandbox: Isolated Runtime](https://img.shields.io/badge/Sandbox-Subprocess%20Isolated-brightgreen.svg)](#)
+[![GUI: Cyberpunk Studio](https://img.shields.io/badge/GUI-Cyberpunk%20Web%20Studio-cyan.svg)](#)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
-*Empowering collaborative AI agent swarms to design, synthesize, statically audit, and safely execute code inside high-security sandboxes—with a live Cyberpunk Web Studio.*
+*Empowering collaborative AI agent swarms to decompose architectural requirements, synthesize clean algorithms, statically audit for vulnerabilities, and execute code inside isolated sandboxes—with a live Cyberpunk Web Studio.*
 
-[Quickstart](#-quickstart) • [The Swarm Personas](#-the-swarm-personas) • [Architecture](#-architecture) • [Security Sandbox](#-security-sandbox) • [Automated Tests](#-automated-tests)
+[Live Showcase](#-live-showcase) • [Quickstart](#-quickstart) • [The Swarm Personas](#-the-swarm-personas) • [Architecture](#-architecture) • [Security Sandbox](#-security-sandbox) • [Automated Tests](#-automated-testing)
 
 ---
 
 </div>
+
+## 📸 Live Showcase
+
+<div align="center">
+  <h3>⚡ Terminal Engine & Swarm Banner</h3>
+  <img src="assets/terminal-banner.png" alt="NeuroHive Terminal Engine" width="780" style="border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"/>
+  <br/><br/>
+  <h3>🧠 Collaborative Multi-Agent Web Studio (Architect & Engineer)</h3>
+  <img src="assets/swarm-studio-planning.png" alt="NeuroHive Swarm Studio Planning" width="780" style="border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"/>
+  <p><i>Atlas designing architecture while Cygnus synthesizes O(n) Python algorithms in real time.</i></p>
+  <br/>
+  <h3>🛡️ Cybersecurity & CVE Static Code Audit</h3>
+  <img src="assets/swarm-studio-audit.png" alt="NeuroHive Security Audit" width="780" style="border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"/>
+  <p><i>Vanguard verifying zero sandbox-breakout risks and approving safe execution in the isolated runtime.</i></p>
+</div>
+
+---
 
 ## 💥 The Problem
 Modern autonomous AI agent architectures suffer from major reliability and security issues:
@@ -31,7 +50,7 @@ Modern autonomous AI agent architectures suffer from major reliability and secur
 2. **System Destruction Risks:** Executing AI-generated code directly on host servers risks catastrophic data loss, unauthorized system calls, or security breakouts.
 3. **Opaque Execution & Zero Visibility:** Developers are locked out of the agent's internal thought loop, making debugging multi-step reasoning impossible.
 
-**NeuroHive** solves this by establishing a disciplined **4-Agent Collaborative Swarm** (Atlas, Cygnus, Vanguard, Sentinel) coupled with an isolated execution sandbox and real-time Web Studio.
+**NeuroHive** solves this by establishing a disciplined **4-Agent Collaborative Swarm** (Atlas, Cygnus, Vanguard, Sentinel) coupled with an isolated execution sandbox and a real-time Cyberpunk Web Studio.
 
 ---
 
